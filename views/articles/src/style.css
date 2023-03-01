@@ -1,0 +1,254 @@
+:root{
+    --color-bodyFont: #D3DFEA;
+    --color-textHeader: #000000;
+    --color-barHrButtom: #4461F2;
+    --color-buttonFont: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bodyFont);
+    font-family: 'Noto Sans Display' , sans-serif;
+    min-width: 1110px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.header-content{
+    width: 80%;
+    height: 43px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 53px;
+}
+
+.header-content button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 15px;
+    line-height: 0;
+    border: none;
+
+}
+
+.header-content button h3{
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.header-navli{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.bar-button{
+    width: 0;
+    height: 0;
+    border: none;
+    margin-top: 15px;
+    transition: 0.5s;
+}
+
+.header-content button:hover .bar-button{
+
+    animation: showbarbutton 0.5s;
+    background-color: var(--color-barHrButtom);
+    width: 80%;
+    height: 5px;
+
+}
+
+@keyframes showbarbutton {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+main{
+    width: 100%;
+    height: auto;
+    max-height: 840px;
+}
+
+.main-content{
+    width: 95%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    border-radius: 78px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 38px 31px 61px 37px #c7c7e2;
+}
+
+.main-form{
+    width: 100%;
+    height: 100%;
+    max-height: 844px;
+    position: relative;
+    margin-left: -35%;
+    z-index: 2;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.main-form p{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
+    color: rgba(79, 85, 90, 0.5);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 20px;
+}
+
+input{
+    width: 100%;
+    height: 3vw;
+    max-width: 400px;
+    max-height: 50px;
+    min-height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    background-color: #EAF0F7;
+    letter-spacing: 1px;
+}
+
+form input:hover{
+    outline: none;
+    border: 2px #0096c8 solid;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+}
+
+form input:focus{
+    outline: none;
+    border: 2px #0096c8 solid;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+}
+
+.main-content img{
+    width: 100%;
+    height: auto;
+    border-radius: 78px;
+    z-index: 1;
+}
+
+.group-email{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.group-email span{
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.group-password{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.group-password span{
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.loginfg{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.loginfg button{
+    width: 20%;
+    height: 3vw;
+    max-height: 35px;
+    min-height: 25px;
+    border-radius: 5px;
+    border: 1px #DDDFDD solid;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+    transition: 0.5s;
+}
+
+.loginfg button:hover{
+    box-shadow: 0 22px 21px 24px rgba(68, 97, 242, 0.15);
+}
+
+.facebook{
+    width: auto;
+    height: 20px;
+    position:relative ;
+    margin: 3px 0;
+    color: var(--color-barHrButtom);
+}
+
+.google{
+    width: auto;
+    height: 20px;
+    position:relative ;
+    margin: 3px 0;
+    color: var(--color-barHrButtom);
+}
+
+.button-submit{
+    border: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    background: #4461F2;
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button-submit:hover{
+    background-color: #0096c8;
+    color: white;
+    border: none;
+}

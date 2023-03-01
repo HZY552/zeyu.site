@@ -1,0 +1,258 @@
+:root{
+    --color-bodyFont: #D3DFEA;
+    --color-textHeader: #000000;
+    --color-barHrButtom: #4461F2;
+    --color-buttonFont: #FFFFFF;
+    --color-buttonSociaux:#ACADAC;
+}
+
+@font-face {
+    font-family: stcaiyun;
+    src: url("../fonts/chinese.stcaiyun.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    background-color: #ffffff;
+    font-family: 'Noto Sans Display' , sans-serif;
+    z-index: 0;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.header-logo{
+    margin-left: 50px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.header-content{
+    width: 100%;
+    height: 43px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 53px;
+}
+
+.header-content button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 15px;
+    line-height: 0;
+    border: none;
+
+}
+
+.header-content button h3{
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.header-navli{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.bar-button{
+    width: 0;
+    height: 0;
+    border: none;
+    margin-top: 15px;
+    transition: 0.5s;
+}
+
+.header-content button:hover .bar-button{
+
+    animation: showbarbutton 0.5s;
+    background-color: var(--color-barHrButtom);
+    width: 80%;
+    height: 5px;
+
+}
+
+@keyframes showbarbutton {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+.list-button{
+    height: 60px;
+    border: none;
+    background-color: white;
+    font-size: 1.3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.list-button:hover{
+    color: #FFFFFF;
+    background-color: rgb(152, 152, 152);
+}
+
+footer{
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+}
+
+.title_footer{
+    width: 100%;
+    height: auto;
+}
+
+.title_footer h3{
+    width: 100%;
+    height: auto;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.banner-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.banner-button button{
+    border: none;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.banner-button a{
+    text-decoration: none;
+    color: var(--color-buttonSociaux);
+    target-name: new;
+    transition: 0.5s;
+}
+
+.banner-button a:hover{
+    color: var(--color-barHrButtom);
+}
+
+footer{
+    width: 100%;
+    height: auto;
+    background-color: #1A0C3E;
+    min-height: 400px;
+}
+
+.font-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+.footer-left{
+    width: 400px;
+    height: 400px;
+    background: url("/views/indexs/images/portfolio-left-img.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.footer-right{
+    width: 400px;
+    height: 400px;
+    background: url("/views/indexs/images/portfolio-right-img.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    display: none;
+}
+
+.content-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -300px;
+    gap: 50px;
+}
+
+.content-footer h4{
+    font-size: 1.7rem;
+    color: white;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 49px;
+    letter-spacing: -0.02em;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu-footer p{
+    color: white;
+}
+
+.menu-footer .p-footer:after{
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 2px;
+    background-color: white;
+    margin-left: 13px;
+    margin-top: 3px;
+}
+
+.logo-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo-footer svg{
+    color: white;
+}

@@ -1,0 +1,205 @@
+:root{
+    --color-bodyFont: #f6f6f6;
+    --color-textHeader: #000000;
+    --color-barHrButtom: #4461F2;
+    --color-buttonFont: #FFFFFF;
+    --color-buttonSociaux:#ACADAC;
+}
+
+@font-face {
+    font-family: stcaiyun;
+    src: url("../fonts/chinese.stcaiyun.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bodyFont);
+    font-family: 'Noto Sans Display' , sans-serif;
+    min-width: 1110px;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    transition: 0s;
+}
+
+button{
+    cursor: pointer;
+}
+
+.header-content{
+    width: 80%;
+    height: 43px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 53px;
+}
+
+.header-content button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 15px;
+    line-height: 0;
+    border: none;
+
+}
+
+.header-content button h3{
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.header-navli{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.bar-button{
+    width: 0;
+    height: 0;
+    border: none;
+    margin-top: 15px;
+    transition: 0.5s;
+}
+
+.header-content button:hover .bar-button{
+
+    animation: showbarbutton 0.5s;
+    background-color: var(--color-barHrButtom);
+    width: 80%;
+    height: 5px;
+
+}
+
+@keyframes showbarbutton {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+main{
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+}
+
+.banner{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+
+.banner-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    padding-left: 150px;
+}
+
+.banner-text h3{
+    font-family: 'STHupo';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 3.7rem;
+    line-height: 95px;
+    letter-spacing: 0.06em;
+}
+
+.banner-text p{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 65px;
+    letter-spacing: 0.06em;
+    color: #2D2D2D;
+
+}
+
+.banner-img{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.animation-img{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.img-banner{
+    width: 100%;
+    height: auto;
+    max-width: 1030px;
+    z-index: 0;
+}
+
+.title1{
+    color: #314284;
+}
+
+.title2{
+    color: #7304FD;
+}
+
+.banner-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+.banner-button button{
+    border: none;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.banner-button a{
+    text-decoration: none;
+    color: var(--color-buttonSociaux);
+    target-name: new;
+    transition: 0.5s;
+}

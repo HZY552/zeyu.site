@@ -1,0 +1,80 @@
+main{
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+}
+
+.uploads{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploads form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 550px;
+    gap: 20px;
+    margin-top: 150px;
+}
+
+.uploads form input[type = "file"]{
+    font-size: 1.2rem;
+}
+
+
+.uploads form input[type = "submit"]{
+    width: 80%;
+    border-radius: 15px;
+    color: black;
+    font-size: 1rem;
+    padding: 10px 10px;
+    border: none;
+    cursor: not-allowed;
+}
+
+tr{
+    max-width: 100%;
+}
+
+td{
+    padding: 5px 5px;
+    overflow: hidden;
+}
+
+table{
+    margin-top: 50px;
+}
+
+.list-button{
+    height: 60px;
+    border: none;
+    background-color: white;
+    font-size: 1.3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 55px;
+}
+
+.list-button:hover{
+    color: #FFFFFF;
+    background-color: rgb(152, 152, 152);
+}
+
+
+
+
+
+
+
+
+
+
