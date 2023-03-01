@@ -94,7 +94,9 @@ function click_button_menu(){
             button_proj.setAttribute('class','list-button');
             button_proj.setAttribute('id','button-proj');
             div_menu.appendChild(button_proj);
-            button_proj.innerHTML = "Parcours de professionnalisation";
+            button_proj.innerHTML = "Mes parcours";
+
+
 
             let button_download = document.createElement('button');
             button_download.setAttribute('class','list-button');
@@ -122,7 +124,7 @@ function click_button_menu(){
                 button_log.innerHTML = "Login";
             }
 
-
+            create_menu_parcours_moblie();
         } else{
             svg.style.transform = "rotate(0deg)";
             if (body_height == 0){
@@ -178,7 +180,7 @@ function loadimg(){
             group_button.removeChild(button_list);
         }
 
-        for (let i=0;i<4;i++){
+        for (let i=0;i<group_button.querySelectorAll('button').length;i++){
             group_button.getElementsByTagName('button')[i].style.display = "";
         }
 
@@ -193,6 +195,8 @@ function loadimg(){
         }
 
     }if (w_width > 1130 ){
+        create_menu_parcours();
+
         let header = document.querySelector('header');
         header.style.height = "auto";
         if (document.title === "Inscriptions" || document.title === "Logins"){
@@ -242,10 +246,133 @@ function loadimg(){
 
 function open_login(url){
     window.location.href = url;
-    console.log(1)
 }
 
+function create_menu_parcours(){
+    let mes_parcours = document.getElementById('mes-parcours');
 
+    mes_parcours.addEventListener('mouseenter',function (){
+        mes_parcours.style.width = "270px";
+        mes_parcours.style.height = "auto";
+        mes_parcours.style.marginTop = "150px";
+        mes_parcours.style.backgroundColor = "#177dff";
+        mes_parcours.style.color = "white";
+        mes_parcours.style.paddingTop = "15px";
+        let get_hr = mes_parcours.querySelectorAll('hr')[0];
+        get_hr.style.opacity = "0";
+        let mes_parcours_nav = document.createElement('nav');
+        mes_parcours_nav.setAttribute('class','mes-parcoursNav');
+        mes_parcours_nav.setAttribute('id','mes-parcoursNav');
+        if (mes_parcours.querySelectorAll('nav').length === 0){
+            mes_parcours.appendChild(mes_parcours_nav);
+        }
+
+
+        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
+        list_id = ["a-ecole","a-entreprise","a-tableau"];
+        list_url = ["/mesparcours/ecole","/mesparcours/entreprise","/mesparcours/tableau"];
+        list_element = [];
+        for (let i = 0;i<list_nameButton.length;i++){
+            list_element[i] = document.createElement("button");
+            list_element[i].setAttribute('id',list_id[i]);
+            list_element[i].setAttribute('onclick','open_login('+'"'+list_url[i]+'"'+')');
+            let number_element = mes_parcours_nav.querySelectorAll('button').length;
+            if(number_element < 3){
+                mes_parcours_nav.appendChild(list_element[i]);
+                list_element[i].innerHTML = list_nameButton[i];
+            }
+
+        }
+    })
+
+    mes_parcours.addEventListener('mouseleave',function (){
+        let mes_parcours = document.getElementById('mes-parcours');
+        mes_parcours.style.width = "145px";
+        mes_parcours.style.height = "auto";
+        mes_parcours.style.marginTop = "";
+        mes_parcours.style.color = "black";
+        mes_parcours.style.paddingTop = "";
+        mes_parcours.style.backgroundColor = "transparent";
+        let parcoursNav = document.getElementById('mes-parcoursNav');
+        if (parcoursNav){
+            mes_parcours.removeChild(parcoursNav);
+        }
+
+    })
+}
+
+function create_menu_parcours_moblie(){
+    let mes_parcours = document.getElementById('button-proj');
+    let telechargement = document.getElementById('button-down');
+    let login = document.getElementById('button-log');
+    mes_parcours.addEventListener('mouseenter',function (){
+        mes_parcours.style.height = "auto";
+        mes_parcours.style.paddingTop = "20px";
+        telechargement.style.opacity = "0";
+        login.style.opacity = "0";
+        let mes_parcours_nav = document.createElement('nav');
+        mes_parcours_nav.setAttribute('class','mes-parcoursNav');
+        mes_parcours_nav.setAttribute('id','mes-parcoursNav');
+        if (mes_parcours.querySelectorAll('nav').length === 0){
+            mes_parcours.appendChild(mes_parcours_nav);
+        }
+
+
+        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
+        list_id = ["a-ecole","a-entreprise","a-tableau"];
+        list_url = ["/mesparcours/ecole","/mesparcours/entreprise","/mesparcours/tableau"];
+        list_element = [];
+        for (let i = 0;i<list_nameButton.length;i++){
+            list_element[i] = document.createElement("button");
+            list_element[i].setAttribute('id',list_id[i]);
+            list_element[i].setAttribute('onclick','open_login('+'"'+list_url[i]+'"'+')');
+            let number_element = mes_parcours_nav.querySelectorAll('button').length;
+            if(number_element < 3){
+                mes_parcours_nav.appendChild(list_element[i]);
+                list_element[i].innerHTML = list_nameButton[i];
+            }
+
+        }
+    })
+
+    mes_parcours.addEventListener('mouseleave',function (){
+        let mes_parcours = document.getElementById('button-proj');
+        let telechargement = document.getElementById('button-down');
+        let login = document.getElementById('button-log');
+        mes_parcours.style.height = "";
+        mes_parcours.style.paddingTop = "";
+        telechargement.style.opacity = "1";
+        login.style.opacity = "1";
+        let parcoursNav = document.getElementById('mes-parcoursNav');
+        if (parcoursNav){
+            mes_parcours.removeChild(parcoursNav);
+        }
+
+    })
+}
+
+function change_scroll(){
+    let button_a_propose_de_moi = document.getElementById("button-a-proposedemoi");
+    let button_contact = document.getElementById('button-contact');
+    let button_contact2 = document.getElementById('button-contact2');
+    if (button_a_propose_de_moi){
+        button_a_propose_de_moi.addEventListener("click",function (){
+            window.scrollTo({top:870,behavior:'smooth'});
+        })
+    }
+
+    if (button_contact){
+        button_contact.addEventListener('click',function (){
+            window.scrollTo({top:4600,behavior:'smooth'});
+        })
+    }
+
+    if (button_contact2){
+        button_contact2.addEventListener('click',function (){
+            window.scrollTo({top:4600,behavior:'smooth'});
+        })
+    }
+}
 
 
 

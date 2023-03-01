@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
         <p>Actuellement en 2iére année d'études de BTS Services informatiques aux organisations, option SLAM à l’école H3 Hitema (Issy-les-Moulineaux), je suis à la recherche d'une entreprise qui pourrait m'accueillir en alternance.
         </p>
         <div class="cv-button">
-            <button class="button-contact">Contact</button>
+            <button class="button-contact" id="button-contact2">Contact</button>
         </div>
     </div>
     <img src="/views/indexs/images/profil xiaoyu3.png">

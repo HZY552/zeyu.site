@@ -39,7 +39,8 @@ window.onload = function (){
             Carrousel_auto()
         }
     },4000)
-    check_contact()
+    check_contact();
+    change_scroll();
 }
 
 window.addEventListener('resize',function (){

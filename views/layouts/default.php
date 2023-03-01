@@ -31,15 +31,16 @@
                 </button>
             </div>
             <div class="header-navli" id="header-navli">
-                <button>
+                <?php $url = $_SERVER["REQUEST_URI"]; if($url === "/" || $url === "/indexs") : ?>
+                <button id="button-a-proposedemoi">
                     <h3>A propose de moi</h3>
                     <hr class="bar-button">
                 </button>
-                <button>
+                <button id="mes-parcours" style="width: 130px;">
                     <h3>Mes Parcours</h3>
                     <hr class="bar-button">
                 </button>
-                <button>
+                <button id="button-contact">
                     <h3>Contact</h3>
                     <hr class="bar-button">
                 </button>
@@ -70,6 +71,39 @@
                     </h3>
                     <hr class="bar-button">
                 </button>
+                <?php else: ?>
+                <button id="mes-parcours" style="width: 130px;">
+                    <h3>Mes Parcours</h3>
+                    <hr class="bar-button">
+                </button>
+                <button>
+                    <h3><a href="/Downloads" style="text-decoration: none;color: black;">Téléchargement</a></h3>
+                    <hr class="bar-button">
+                </button>
+                <button>
+                    <h3>
+                        <?php
+                        $js = $this->getJsFile();
+                        if ($js == 'inscription'){
+                            echo '<a href="/logins" style="text-decoration: black;color: black;">Login</a>';
+                        }else{
+                            if ($js == 'login'){
+                                echo '<a href="/inscriptions" style="text-decoration: black;color: black;">Inscription</a>';
+                            }else{
+                                if(empty($_SESSION['token'])){
+                                    echo '<a href="/logins" style="text-decoration: none; color: black;">Login</a>';
+                                }else{
+                                    $token = $_SESSION['token'];
+                                    echo '<a href="/accounts" style="text-decoration: none; color: black;" >'.$username.'</a>';
+                                }
+                            }
+
+                        }
+                        ?>
+                    </h3>
+                    <hr class="bar-button">
+                </button>
+                <?php endif; ?>
             </div>
         </div>
     </header>
