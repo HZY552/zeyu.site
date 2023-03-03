@@ -41,6 +41,15 @@ class Index extends Model{
     public function send($name,$tele,$email,$sujet,$message){
         $sql = "INSERT INTO contact " . "(nom,tele,email,sujet,message,date) values (?,?,?,?,?,?)";
         $query = $this->_connexion->prepare($sql);
-        $query->execute(array($name,$tele,$email,$sujet,$message,date('Y-m-d H:i:s', time())));
+        if (!empty($name) && !empty($email) && !empty($email) && !empty($message) && !empty($sujet) && !empty($tele)){
+            if (empty($_SESSION['token_contact'])){
+                $this->set_token();
+                $query->execute(array($name,$tele,$email,$sujet,$message,date('Y-m-d H:i:s', time())));
+            }
+        }
+    }
+
+    private function set_token(){
+        $_SESSION['token_contact'] = md5(microtime(true));
     }
 }

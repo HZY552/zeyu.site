@@ -43,7 +43,6 @@ class Indexs extends Controller{
     public function send_contact($name,$email,$tele,$sujet,$message){
         $this->loadModel('Index');
         $contact = $this->Index->send($name,$tele,$email,$sujet,$message);
-
     }
 
 }

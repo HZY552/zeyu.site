@@ -217,7 +217,8 @@ function loadimg(){
             div_menu.removeChild(button_log);
         }
     } else{
-        for (let i=4-1;i>=0;i--){
+        let num = group_button.querySelectorAll('button').length;
+        for (let i=num-1;i>=0;i--){
             group_button.getElementsByTagName('button')[i].style.display = "none";
         }
 
@@ -270,7 +271,7 @@ function create_menu_parcours(){
 
         list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
         list_id = ["a-ecole","a-entreprise","a-tableau"];
-        list_url = ["/mesparcours/ecole","/mesparcours/entreprise","/tableaus"];
+        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus"];
         list_element = [];
         for (let i = 0;i<list_nameButton.length;i++){
             list_element[i] = document.createElement("button");
@@ -320,7 +321,7 @@ function create_menu_parcours_moblie(){
 
         list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
         list_id = ["a-ecole","a-entreprise","a-tableau"];
-        list_url = ["/mesparcours/ecole","/mesparcours/entreprise","/tableaus"];
+        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus"];
         list_element = [];
         for (let i = 0;i<list_nameButton.length;i++){
             list_element[i] = document.createElement("button");

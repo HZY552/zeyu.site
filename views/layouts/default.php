@@ -19,7 +19,7 @@
     <script src="/views/<?=strtolower($this->getClassName())?>/src/<?=$this->getJsFile()?>.js"></script>
     <title><?=$this->getClassName()?></title>
     <!-- 加载 图标 -->
-    <link rel="icon" type="image/x-icon" href="chat16.ico">
+    <link rel="icon" type="image/x-icon" href="/chat16.ico">
 </head>
 <body>
     <header>
@@ -37,7 +37,7 @@
                     <hr class="bar-button">
                 </button>
                 <button id="mes-parcours" style="width: 130px;">
-                    <h3>Mes Parcours</h3>
+                    <h3 onclick="open_login('/mesparcours')">Mes Parcours</h3>
                     <hr class="bar-button">
                 </button>
                 <button id="button-contact">
