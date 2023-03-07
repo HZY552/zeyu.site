@@ -9,27 +9,49 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 class func{
 
     private $conn;
+
     public function __construct(){
         require_once "../config/database.php";
         require_once "check.php";
+        require_once "AES.php";
         $database = new database();
         $this->conn = $database->getConnection();
 
         $this->check = new check();
+        $this->ASE = new AES();
     }
 
     public function get_UrlOptions(){
         $url = $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
         $url_parse = parse_url($url);
-        parse_str($url_parse['query'],$res);
-        return $res;
+        $res = $this->convertUrlArray($url_parse['query']);
+        $res_return = array();
+        foreach ($res as $r){
+            array_push($res_return,$this->ASE->decrypt($r));
+        }
+        return $res_return;
+    }
+
+    public function convertUrlArray($query)
+    {
+        $queryParts = explode('&', $query);
+        $params = array();
+        foreach ($queryParts as $param) {
+            $item = explode('=', $param);
+            $params[$item[0]] = $item[1];
+        }
+        return $params;
+
     }
 
     public function check_Token(){
         //token_origin = $2y$10$z498Zm8y7V8WZSpzDs9ioeF.bZ4hwoXmZC.6nnNVnZfY.pNj29oR6;
         $url = $this->get_UrlOptions();
-        $res = password_verify('Jiojio000608.',$url["token"]);
-        return $res;
+        if ($url[1] === "Jiojio000608."){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function call_function($name_function,$options){
@@ -46,6 +68,7 @@ class func{
         }
         unset($options[0]);
         unset($options[1]);
+
         return $options;
     }
 
@@ -79,6 +102,7 @@ class func{
                 $this->check->check_Number(intval($values[6])) &&
                 $this->check_DoubleUser($values[3]) &&
                 $this->check->check_Password($values[5])){
+                $values[5] = password_hash($values[5],PASSWORD_BCRYPT );
                 $sql = "INSERT INTO " . $name_table . "(nom,prenom,date_de_naissance,email,address,password,tele) VALUES (?,?,?,?,?,?,?)";
                 $stmt = $this->conn->prepare($sql);
                 return $stmt->execute($values);
@@ -89,6 +113,16 @@ class func{
             return false;
         }
 
+    }
+
+    public function login($table_name,$options){
+        $values = array();
+        foreach (explode(",",$options) as $v){
+            if (!empty($v) && $v !== "" && $v !== " "){
+                array_push($values,$v);
+            }
+        }
+        var_dump($values);
     }
 
     private function check_DoubleUser($email){
@@ -104,9 +138,13 @@ class func{
     }
 
     public function test(){
-        $val = "Jiojio000608.";
-        var_dump(!$this->check->check_Password($val));
-        return $this->check->check_Password($val);
+        require_once "AES.php";
+        $Ase = new AES();
+        $res_crypt = $Ase->encrypt("houzeyu7@gmail.com,Jiojio000608.");
+        var_dump($res_crypt);
+        $res_decrypt = $Ase->decrypt("KmwHIJiFla9W0MTlRAwdZg==");
+        var_dump($res_decrypt);
+        return true;
     }
 }
 
@@ -116,11 +154,9 @@ $token = $function->check_Token();
 if ($token === true){
     $url = $function->get_UrlOptions();
     $options = $function->set_options();
-    var_dump($options);
-    $res = $function->call_function($url['func'],$options);
+    $res = $function->call_function($url[0],$options);
     echo json_encode($res);
 }else{
     header('HTTP/1.0 403 Forbidden');
     json_encode("403");
 }
-
