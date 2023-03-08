@@ -122,7 +122,16 @@ class func{
                 array_push($values,$v);
             }
         }
-        var_dump($values);
+        $sql = "SELECT id,email,password FROM " . $table_name . " WHERE email = " . "'" . $values[0] . "'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump($res);
+        if ($res["email"] === $values[0] && password_verify($values[1],$res["password"])){
+            return $res["id"];
+        }else{
+            return null;
+        }
     }
 
     private function check_DoubleUser($email){
