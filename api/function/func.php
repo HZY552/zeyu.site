@@ -77,15 +77,23 @@ class func{
         $sql = "SELECT * FROM " . $name_table;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
     }
 
     //http://localhost/api/function/func.php?func=get_By_value&token=$2y$10$z498Zm8y7V8WZSpzDs9ioeF.bZ4hwoXmZC.6nnNVnZfY.pNj29oR6&t=clients&condition=id&id=100083
-    public function get_By_value($name_table,$condition,$value){
-        $sql = "SELECT * FROM " . $name_table . " WHERE " . $condition . " = ". $value;
+    public function get_By_value($name_table,$value){
+        $values = array();
+        foreach (explode(",",$value) as $v){
+            if (!empty($v) && $v !== "" && $v !== " "){
+                array_push($values,$v);
+            }
+        }
+        $sql = "SELECT * FROM " . $name_table . " WHERE " . $values[0] . " = '" . $values[1] . "'";
+        var_dump($values[0],$values[1],$sql);
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
+        json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
     }
 
     //http://localhost/api/function/func.php?func=inscription&token=$2y$10$z498Zm8y7V8WZSpzDs9ioeF.bZ4hwoXmZC.6nnNVnZfY.pNj29oR6&t=clients&values=hou,zeyu,1998-05-12,houzeyu7@gmail.com,33 rue louise weiss 75013 paris,Jiojio000608.,0695867276
@@ -105,12 +113,12 @@ class func{
                 $values[5] = password_hash($values[5],PASSWORD_BCRYPT );
                 $sql = "INSERT INTO " . $name_table . "(nom,prenom,date_de_naissance,email,address,password,tele) VALUES (?,?,?,?,?,?,?)";
                 $stmt = $this->conn->prepare($sql);
-                return $stmt->execute($values);
+                json_encode($stmt->execute($values));
             }else{
-                return false;
+                json_encode("false");
             }
         }else{
-            return false;
+            json_encode("false");
         }
 
     }
@@ -126,11 +134,13 @@ class func{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($res);
+
         if ($res["email"] === $values[0] && password_verify($values[1],$res["password"])){
-            return $res["id"];
+            echo json_encode($res);
+
         }else{
-            return null;
+            echo json_encode($res);
+
         }
     }
 
@@ -164,7 +174,7 @@ if ($token === true){
     $url = $function->get_UrlOptions();
     $options = $function->set_options();
     $res = $function->call_function($url[0],$options);
-    echo json_encode($res);
+    //echo json_encode($res);
 }else{
     header('HTTP/1.0 403 Forbidden');
     json_encode("403");
