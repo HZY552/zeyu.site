@@ -77,7 +77,7 @@ class func{
         $sql = "SELECT * FROM " . $name_table;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+        echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
     }
 
     //http://localhost/api/function/func.php?func=get_By_value&token=$2y$10$z498Zm8y7V8WZSpzDs9ioeF.bZ4hwoXmZC.6nnNVnZfY.pNj29oR6&t=clients&condition=id&id=100083
@@ -89,11 +89,10 @@ class func{
             }
         }
         $sql = "SELECT * FROM " . $name_table . " WHERE " . $values[0] . " = '" . $values[1] . "'";
-        var_dump($values[0],$values[1],$sql);
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
-        json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+
+        echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
     }
 
     //http://localhost/api/function/func.php?func=inscription&token=$2y$10$z498Zm8y7V8WZSpzDs9ioeF.bZ4hwoXmZC.6nnNVnZfY.pNj29oR6&t=clients&values=hou,zeyu,1998-05-12,houzeyu7@gmail.com,33 rue louise weiss 75013 paris,Jiojio000608.,0695867276
@@ -106,21 +105,51 @@ class func{
         }
         if (sizeof($values) === 7){
             if ($this->check->check_Email($values[3]) &&
-                $this->check->check_Date($values[2]) &&
-                $this->check->check_Number(intval($values[6])) &&
-                $this->check_DoubleUser($values[3]) &&
-                $this->check->check_Password($values[5])){
-                $values[5] = password_hash($values[5],PASSWORD_BCRYPT );
-                $sql = "INSERT INTO " . $name_table . "(nom,prenom,date_de_naissance,email,address,password,tele) VALUES (?,?,?,?,?,?,?)";
-                $stmt = $this->conn->prepare($sql);
-                json_encode($stmt->execute($values));
+                $this->check->check_Date($values[5]) &&
+                $this->check->check_Number(intval($values[4])) &&
+                $this->check->check_Password($values[2])){
+                $values[2] = password_hash($values[2],PASSWORD_BCRYPT );
+                if($this->check_DoubleUser($values[3])){
+                    $sql = "INSERT INTO " . $name_table . "(nom,prenom,password,email,tele,date_de_naissance,address) VALUES (?,?,?,?,?,?,?)";
+                    $stmt = $this->conn->prepare($sql);
+                    echo "{res:" . json_encode($stmt->execute($values)) . "}";
+                }else{
+                    echo "{res:" . json_encode("l'utilisateur existe déjà !") . "}";
+                }
+
             }else{
-                json_encode("false");
+                echo "{res:" . json_encode("false") . "}";
             }
         }else{
-            json_encode("false");
+            echo "{res:" . json_encode("L'inscription a échoué, veuillez contacter l'administrateur") . "}";
         }
 
+    }
+
+    public function change_value($table_name,$options){
+        $values = array();
+        foreach (explode(",",$options) as $v){
+            if (!empty($v) && $v !== "" && $v !== " "){
+                array_push($values,$v);
+            }
+        }
+        $sql = "UPDATE '" . $table_name . "' SET '" . $values[0] . "' = '" .$values[1] . "' WHERE '" . $values[2] . "'='" . $values[3] . "'";
+        $stmt = $this->conn->prepare($sql);
+        echo "{res:" . $stmt->execute($values) . "}";
+    }
+
+    public function change_password($table_name,$options){
+        $values = array();
+        foreach (explode(",",$options) as $v){
+            if (!empty($v) && $v !== "" && $v !== " "){
+                array_push($values,$v);
+            }
+        }
+
+        $sql = "UPDATE " . "`" . $table_name ."` SET `" . $values[0] ."` = '" . password_hash($values[1],PASSWORD_BCRYPT ) . "' WHERE `" . $table_name ."`.`" . $values[2] ."` = " . $values[3];
+        $stmt = $this->conn->prepare($sql);
+
+        echo "{res:" . $stmt->execute() . "}";
     }
 
     public function login($table_name,$options){
@@ -137,10 +166,8 @@ class func{
 
         if ($res["email"] === $values[0] && password_verify($values[1],$res["password"])){
             echo json_encode($res);
-
         }else{
-            echo json_encode($res);
-
+            echo json_encode(null);
         }
     }
 
