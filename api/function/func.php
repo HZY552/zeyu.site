@@ -193,7 +193,7 @@ class func{
         return true;
     }
 }
-
+//test
 $function = new func();
 $token = $function->check_Token();
 
