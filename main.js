@@ -269,16 +269,16 @@ function create_menu_parcours(){
         }
 
 
-        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
-        list_id = ["a-ecole","a-entreprise","a-tableau"];
-        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus"];
+        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse","Veilles Technologies"];
+        list_id = ["a-ecole","a-entreprise","a-tableau","a-tec"];
+        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus","/veillestecs"];
         list_element = [];
         for (let i = 0;i<list_nameButton.length;i++){
             list_element[i] = document.createElement("button");
             list_element[i].setAttribute('id',list_id[i]);
             list_element[i].setAttribute('onclick','open_login('+'"'+list_url[i]+'"'+')');
             let number_element = mes_parcours_nav.querySelectorAll('button').length;
-            if(number_element < 3){
+            if(number_element < 4){
                 mes_parcours_nav.appendChild(list_element[i]);
                 list_element[i].innerHTML = list_nameButton[i];
             }
@@ -319,16 +319,16 @@ function create_menu_parcours_moblie(){
         }
 
 
-        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse"];
-        list_id = ["a-ecole","a-entreprise","a-tableau"];
-        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus"];
+        list_nameButton = ["Activité Ecole","Activité Entreprise","Tableau de synthèse","Veilles Technologies"];
+        list_id = ["a-ecole","a-entreprise","a-tableau","a-tec"];
+        list_url = ["/mesparcours/type/ecole","/mesparcours/type/stage","/tableaus","/veillestecs"];
         list_element = [];
         for (let i = 0;i<list_nameButton.length;i++){
             list_element[i] = document.createElement("button");
             list_element[i].setAttribute('id',list_id[i]);
             list_element[i].setAttribute('onclick','open_login('+'"'+list_url[i]+'"'+')');
             let number_element = mes_parcours_nav.querySelectorAll('button').length;
-            if(number_element < 3){
+            if(number_element < 4){
                 mes_parcours_nav.appendChild(list_element[i]);
                 list_element[i].innerHTML = list_nameButton[i];
             }
