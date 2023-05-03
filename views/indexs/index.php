@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
         <h3 class="title1"></h3>
         <h3 class="title2"></h3>
         <p>Bienvenue dans mon portefolio, Étudiant H3 Hitema BTS SIO SLAM</p>
-        <button class="banner-button" id="banner-button">Login</button>
+        <button class="banner-button" id="banner-button">connexion</button>
     </div>
     <div class="banner-img">
         <div class="animation-img" id="animation-img">
