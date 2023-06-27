@@ -6,7 +6,26 @@
     </svg>
     <h3>Tableau de synthèse des réalisations professionnelles</h3>
 </div>
+<canvas id="pdfCanvas" style="margin:0 auto;display: flex;padding-top: 50px;"></canvas>
+<script>
+    const url = 'https://www.zeyu.site/views/tableaus/images/tableau.pdf';
+    const canvas = document.getElementById('pdfCanvas');
+    const ctx = canvas.getContext('2d');
+    const scale = 3; // 设置缩放比例
 
-<div class="content-pdf">
-    <iframe src="../views/tableaus/images/tableau.pdf" class="pdf-view"></iframe>
-</div>
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        pdf.getPage(1).then(function(page) {
+            const viewport = page.getViewport({ scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport
+            };
+
+            page.render(renderContext);
+        });
+    });
+</script>
+

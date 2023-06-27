@@ -4,7 +4,7 @@ abstract class Model{
     private $host = "89.156.15.147";
     private $db_name = "server";
     private $username = "pc";
-    private $password = "jiojio000608.";
+    private $password = "Houzeyu970512.";
 
     //Propriété contenant la connxion
 

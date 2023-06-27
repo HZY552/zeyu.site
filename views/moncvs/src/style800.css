@@ -1,0 +1,37 @@
+.content-pdf{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.pdf-view{
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title{
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.title h3{
+    font-size: 1.5rem;
+    text-align: center;
+    color: #314284;
+}
+
+.title svg{
+    color: #7304FD;
+    display: none;
+}

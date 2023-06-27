@@ -17,9 +17,10 @@
     <!-- 加载 JavaScript -->
     <script src="/main.js"></script>
     <script src="/views/<?=strtolower($this->getClassName())?>/src/<?=$this->getJsFile()?>.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <title><?=$this->getClassName()?></title>
     <!-- 加载 图标 -->
-    <link rel="icon" type="image/x-icon" href="/chat16.ico">
+    <link rel="icon" type="image/x-icon" href="chat16.ico">
 </head>
 <body>
     <header>

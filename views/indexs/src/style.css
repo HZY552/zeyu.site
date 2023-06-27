@@ -323,17 +323,18 @@ a{
     align-items: center;
     width: 40%;
     max-width: 550px;
-    max-height: 280px;
+    max-height: 350px;
+    min-height: 350px;
     height: auto;
     border: none;
     border-radius: 15px;
     box-shadow: 12px 21px 43px -19px rgba(0,0,0,0.75);
     -webkit-box-shadow: 12px 21px 43px -19px rgba(0,0,0,0.75);
     -moz-box-shadow: 12px 21px 43px -19px rgba(0,0,0,0.75);
-    padding: 50px 50px;
     margin: 24px 0px 0px 24px;
     z-index: 3;
     gap: 20px;
+    padding: 0px 24px;
 }
 
 .p3 .box_img{

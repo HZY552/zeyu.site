@@ -5,7 +5,7 @@ class database{
     private $host = "89.156.15.147";
     private $database_name = "projet_e5";
     private $username = "pc";
-    private $password = "jiojio000608.";
+    private $password = "Houzeyu970512.";
 
     public $conn,$status;
 

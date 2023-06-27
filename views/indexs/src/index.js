@@ -143,9 +143,9 @@ function progress(id,color,name,pourcentage,left,right){
 function run_progress(){
     let list_id = ['html','css','java','python','php','js','sql','vue.js']
     let list_name = ['HTML','CSS','JAVA','PYTHON','PHP','JS','SQL','VUE']
-    let pourcentage = [80,80,50,60,65,70,60,50]
-    let list_left = [175,175,45,75,95,115,75,45]
-    let list_right = [45,45,45,45,45,45,45,45]
+    let pourcentage = [80,80,60,60,65,70,60,25]
+    let list_left = [175,175,75,75,95,115,75,45]
+    let list_right = [45,45,45,45,45,45,45,310]
     let list_color = ['#FF5151','#5158FF','#61B177','#FCA103','#2AC6C6','#F650A0','#9747FF','#FE9AB2']
     for (let z = 0;z < list_id.length;z++){
         progress(list_id[z],list_color[z],list_name[z],pourcentage[z],list_left[z],list_right[z])

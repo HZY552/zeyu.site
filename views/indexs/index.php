@@ -83,11 +83,20 @@ if(isset($_POST['submit'])){
 <div class="p2">
     <div class="ab-me">
         <h3>A Propose De Moi</h3>
-        <p>Je m'appelle Hou Zeyu</p>
-        <p>Actuellement en 2iére année d'études de BTS Services informatiques aux organisations, option SLAM à l’école H3 Hitema (Issy-les-Moulineaux), je suis à la recherche d'une entreprise qui pourrait m'accueillir en alternance.
+        <p style="line-height: 35px;font-size: 1.4rem">Je m'appelle Hou Zeyu et je suis un étudiant chinois en France.</br>
+            </br>
+            Actuellement, je suis en deuxième année de BTS Services Informatiques aux Organisations à l'école H3 Hitema, située à Issy-les-Moulineaux. </br>
+            La programmation me passionne, en particulier la création de sites web (front-end et back-end), l'intelligence artificielle et l'analyse de données massives (big data). </br>
+            </br>
+            Étant donné le développement rapide de la mondialisation et de la numérisation, je souhaite travailler dans le domaine de l'intelligence artificielle et de l'analyse de
+            données massives à l'avenir, tout en continuant à approfondir mes connaissances.
         </p>
         <div class="cv-button">
             <button class="button-contact" id="button-contact2">Contact</button>
+            <a href="moncvs">
+                <button class="button-contact" id="button-contact2">Mon C.V</button>
+            </a>
+
         </div>
     </div>
     <img src="/views/indexs/images/profil xiaoyu3.png">
@@ -104,12 +113,11 @@ if(isset($_POST['submit'])){
                 <img src="/views/indexs/images/service-icon3.png">
             </div>
             <div class="box-text">
-                <span>Développement Web</span>
-                <p>Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit.
-                    Aspernatur blanditiis deleniti deserunt distinctio ducimus eius eos
-                    error et ex fugit molestias, necessitatibus nesciunt
-                    pariatur porro possimus sit totam, veniam voluptate?</p>
+                <span>Développement Web</span></br>
+                <p style="line-height: 25px; font-size: 1.1rem;font-weight: 700;">
+                    En front-end, familiarisé avec HTML, CSS et JS, et une compréhension basique de Vue.js.</br></br>
+                    Pour le back-end, compétences en PHP(Natif et Symfony).
+                    S'efforce de créer des sites web esthétiques et fonctionnels.</p>
             </div>
         </div>
         <div class="show_box">
@@ -118,11 +126,8 @@ if(isset($_POST['submit'])){
             </div>
             <div class="box-text">
                 <span>Développement D'application</span>
-                <p>Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit.
-                    Aspernatur blanditiis deleniti deserunt distinctio ducimus eius eos
-                    error et ex fugit molestias, necessitatibus nesciunt
-                    pariatur porro possimus sit totam, veniam voluptate?</p>
+                <p style="line-height: 25px; font-size: 1.1rem;font-weight: 700;">Familiarisé avec Java pour le développement d'applications mobiles, et utilisant Android Studio pour concevoir des interfaces utilisateur conviviales.</br></br>
+                    S'engage constamment à améliorer ses compétences pour offrir des applications mobiles fluides et ergonomiques.</p>
             </div>
         </div>
         <div class="show_box">
@@ -130,21 +135,10 @@ if(isset($_POST['submit'])){
                 <img src="/views/indexs/images/service-icon3.png">
             </div>
             <div class="box-text">
-                <span>Développement Web</span>
-                <p>Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit.
-                    Aspernatur blanditiis deleniti deserunt distinctio ducimus eius eos
-                    error et ex fugit molestias, necessitatibus nesciunt
-                    pariatur porro possimus sit totam, veniam voluptate?</p>
-            </div>
-        </div>
-        <div class="show_box">
-            <div class="box_img">
-                <img src="/views/indexs/images/service-icon4.png">
-            </div>
-            <div class="box-text">
-                <span>Développement Web</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores consequuntur distinctio dolorum exercitationem nam odit unde. Culpa cupiditate dolores impedit maiores nihil provident recusandae sapiente? Aperiam eos eveniet nostrum.</p>
+                <span>Virtualisation et Logiciels</span>
+                <p style="line-height: 25px; font-size: 1.1rem;font-weight: 700;">La virtualisation et les logiciels tels que VMWare, VirtualBox, Apache, Linux et MySQL. </br></br>
+                    J'ai de l'expérience dans la gestion de serveurs virtualisés, l'administration des serveurs
+                    Apache sous Linux et la configuration des bases de données MySQL.</p>
             </div>
         </div>
     </div>
